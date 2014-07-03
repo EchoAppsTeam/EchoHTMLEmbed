@@ -1,11 +1,9 @@
-(function(jQuery) {
+(function($) {
 "use strict";
 
-var $ = jQuery;
+var embedApp = Echo.App.manifest("Echo.Apps.HTMLEmbedApp");
 
-var embedApp = Echo.App.manifest("Echo.App.HTMLEmbedApp");
-
-if (Echo.App.isDefined("Echo.App.HTMLEmbedApp")) return;
+if (Echo.App.isDefined("Echo.Apps.HTMLEmbedApp")) return;
 
 embedApp.config = {
 	"content": ""
