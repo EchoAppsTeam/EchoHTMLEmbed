@@ -1,6 +1,5 @@
 (function(jQuery) {
-
-var $ = jQuery;
+"use strict";
 
 if (Echo.AppServer.Dashboard.isDefined("Echo.Apps.HTMLEmbedApp.Dashboard")) return;
 
