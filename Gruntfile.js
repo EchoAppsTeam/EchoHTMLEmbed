@@ -147,7 +147,7 @@ module.exports = function(grunt) {
 				"remoteRoot": shared.config("env") === "staging" ? "/staging" : "",
 				"purgeTitle": "<%= pkg.name %>",
 				"purgePaths": [
-					"/apps/echo/social-map/v<%= pkg.versions.stable %>/"
+					"/apps/echo/html-embed-app/v<%= pkg.versions.stable %>/"
 				]
 			},
 			"regular": {
@@ -156,7 +156,7 @@ module.exports = function(grunt) {
 						"all": {
 							"src": "**",
 							"cwd": "<%= dirs.dist %>/",
-							"dest": "<%= release.options.remoteRoot %>/apps/echo/social-map/v<%= pkg.versions.stable %>/"
+							"dest": "<%= release.options.remoteRoot %>/apps/echo/html-embed-app/v<%= pkg.versions.stable %>/"
 						}
 					}
 				}
