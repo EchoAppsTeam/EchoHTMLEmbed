@@ -1,0 +1,42 @@
+
+{
+  "id": "{%=manifest.id%}",
+  "name": "{%=manifest.name%}",
+  "app_version": "{%=packageVersions.stable%}",
+  "cloudapp_protocol_version": "1.0.0",
+  "description": "",
+  "developer": {
+    "id": "echo",
+    "name": "Echo",
+    "url": "http://www.aboutecho.com",
+    "email": "solutions@aboutecho.com",
+    "icon": "http://cdn.echoenabled.com/images/echo.png"
+  },
+  "dashboards": [
+    {
+      "id": "instances",
+      "title": "Instances",
+      "script": "{%= baseURLs.prod %}/dashboard.js",
+      "component": "Echo.Apps.HTMLEmbedApp.Dashboard",
+      "config": {
+        "instanceManager": {
+          "preview": {
+            "disableForAdmin": true
+          }
+        },
+        "appkeys": "{data:apps.streamserver.appkeys}"
+      },
+      "type": "instances"
+    }
+  ],
+  "client_widget": {
+    "component": "Echo.App.HTMLEmbedApp",
+    "script": "{%= baseURLs.prod %}/html-embed-app.js"
+  },
+  "plans": [
+    {
+      "id": "default",
+      "name": "Default plan"
+    }
+  ]
+}
