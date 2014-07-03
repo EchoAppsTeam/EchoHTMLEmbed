@@ -31,7 +31,7 @@
   ],
   "client_widget": {
     "component": "Echo.App.HTMLEmbedApp",
-    "script": "{%= baseURLs.prod %}/html-embed-app.js"
+    "script": "{%= baseURLs.prod %}/app.js"
   },
   "plans": [
     {
