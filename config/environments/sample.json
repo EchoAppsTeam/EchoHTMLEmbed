@@ -1,0 +1,11 @@
+{
+	"version": 1,
+	"manifest": {
+		"id": "",
+		"name": ""
+	},
+	"baseURLs": {
+		"dev": "",
+		"prod": ""
+	}
+}

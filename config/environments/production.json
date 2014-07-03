@@ -1,0 +1,10 @@
+{
+	"version": 1,
+	"manifest": {
+		"id": "html-embed-app",
+		"name": "HTML Embed App"
+	},
+	"baseURLs": {
+		"prod": "//cdn.echoenabled.com/apps/echo/html-embed-app/"
+	}
+}
