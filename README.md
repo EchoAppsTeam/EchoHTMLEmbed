@@ -1,7 +1,15 @@
-EchoHTMLEmbed
+Overview
 =============
 
-HTML Embed app for AppServer
+HTML Embed app allows embedding any HTML markup.
+
+# Installation instructions
+
+0. Clone this repository.
+1. Download and install NodeJS and npm from [http://nodejs.org](http://nodejs.org) (either from package or the source).
+2. sudo npm install grunt-cli -g
+3. Run the following command in the project directory: npm install
+4. Now you can use 'grunt' command to build the project 
 
 # License
 
@@ -15,4 +23,4 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 # Demo
 
-You can see the demo page of Echo Conversations app [here](http://echoappsteam.github.io/EchoHTMLEmbed/).
+You can see the demo page of Echo HTML Embed App app [here](http://echoappsteam.github.io/EchoHTMLEmbed/).
