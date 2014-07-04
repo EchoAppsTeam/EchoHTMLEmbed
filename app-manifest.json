@@ -18,14 +18,7 @@
       "title": "Instances",
       "script": "{%= baseURLs.prod %}/dashboard.js",
       "component": "Echo.Apps.HTMLEmbedApp.Dashboard",
-      "config": {
-        "instanceManager": {
-          "preview": {
-            "disableForAdmin": true
-          }
-        },
-        "appkeys": "{data:apps.streamserver.appkeys}"
-      },
+      "config": {},
       "type": "instances"
     }
   ],
