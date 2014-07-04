@@ -23,7 +23,7 @@
     }
   ],
   "client_widget": {
-    "component": "Echo.App.HTMLEmbedApp",
+    "component": "Echo.Apps.HTMLEmbedApp",
     "script": "{%= baseURLs.prod %}/app.js"
   },
   "plans": [
