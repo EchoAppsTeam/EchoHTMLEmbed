@@ -5,7 +5,7 @@
 		"name": "HTML Embed App"
 	},
 	"baseURLs": {
-		"dev": "//cdn.echoenabled.com/apps/echo/html-embed-app/v{%=packageVersions.stable%}/dev",
-		"prod": "//cdn.echoenabled.com/apps/echo/html-embed-app/v{%=packageVersions.stable%}"
+		"dev": "//echoplatform.com/sandbox/staging/apps/echo/html-embed-app/v{%=packageVersions.stable%}/dev",
+		"prod": "//echoplatform.com/sandbox/staging/apps/echo/html-embed-app/v{%=packageVersions.stable%}"
 	}
 }
