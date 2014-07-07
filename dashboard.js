@@ -1,9 +1,9 @@
 (function($) {
 "use strict";
 
-if (Echo.AppServer.Dashboard.isDefined("Echo.Apps.HTMLEmbedApp.Dashboard")) return;
+if (Echo.AppServer.Dashboard.isDefined("Echo.Apps.HTMLEmbed.Dashboard")) return;
 
-var dashboard = Echo.AppServer.Dashboard.manifest("Echo.Apps.HTMLEmbedApp.Dashboard");
+var dashboard = Echo.AppServer.Dashboard.manifest("Echo.Apps.HTMLEmbed.Dashboard");
 
 dashboard.inherits = Echo.Utils.getComponent("Echo.AppServer.Dashboards.AppSettings");
 

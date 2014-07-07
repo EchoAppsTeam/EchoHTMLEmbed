@@ -17,13 +17,13 @@
       "id": "instances",
       "title": "Instances",
       "script": "{%= baseURLs.prod %}/dashboard.js",
-      "component": "Echo.Apps.HTMLEmbedApp.Dashboard",
+      "component": "Echo.Apps.HTMLEmbed.Dashboard",
       "config": {},
       "type": "instances"
     }
   ],
   "client_widget": {
-    "component": "Echo.Apps.HTMLEmbedApp",
+    "component": "Echo.Apps.HTMLEmbed",
     "script": "{%= baseURLs.prod %}/app.js"
   },
   "plans": [
