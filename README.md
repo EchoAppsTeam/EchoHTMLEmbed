@@ -1,4 +1,4 @@
 EchoHTMLEmbed
 =============
 
-HTML Embed app for AppServer
+Code app for AppServer
