@@ -1,7 +1,7 @@
 Overview
 =============
 
-HTML Embed app allows embedding any HTML markup.
+Code app allows embedding any HTML markup.
 
 # Installation instructions
 
@@ -23,4 +23,4 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 # Demo
 
-You can see the demo page of Echo HTML Embed App app [here](http://echoappsteam.github.io/EchoHTMLEmbed/).
+You can see the demo page of Echo Code app [here](http://echoappsteam.github.io/EchoHTMLEmbed/).
