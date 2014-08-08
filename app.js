@@ -20,8 +20,6 @@ embedApp.renderers.content = function(element) {
 		.append(this.config.get("content"));
 };
 
-embedApp.css = "";
-
 Echo.App.create(embedApp);
 
 })(Echo.jQuery);
