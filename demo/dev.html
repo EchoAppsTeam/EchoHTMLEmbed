@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code Block Demo</title>
+</head>
+
+<body>
+
+	<script type="text/javascript" src="//cdn.echoenabled.com/sdk/v3/dev/loader.js"></script>
+
+	<div id="container" style="margin: 0px auto; width: 50%; max-width: 440px;"></div>
+
+	<script type="text/javascript">
+
+		Echo.Loader.initApplication({
+			"scripts": {
+				"dev": "{%= baseURLs.dev %}/app.js",
+				"prod": "{%= baseURLs.prod %}/app.js"
+			},
+			"component": "Echo.Apps.HTMLEmbed",
+			"config": {
+				"target": document.getElementById("container"),
+				"content": "<h1>This markup is embedded dynamically</h1><p>The Code app allows to embed any HTML markup into the canvas.</p>"
+			}
+		});
+
+	</script>
+
+</body>
+</html>

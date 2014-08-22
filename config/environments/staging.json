@@ -1,0 +1,11 @@
+{
+	"version": 1,
+	"manifest": {
+		"id": "echo-html-embed",
+		"name": "Code Block (Staging)"
+	},
+	"baseURLs": {
+		"dev": "//echoplatform.com/sandbox/staging<%= release.options.versionPath() %>/dev",
+		"prod": "//echoplatform.com/sandbox/staging<%= release.options.versionPath() %>"
+	}
+}
