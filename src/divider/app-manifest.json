@@ -1,9 +1,10 @@
 {
-  "id": "{%=manifest.id%}",
-  "name": "{%=manifest.name%}",
+  "id": "{%=manifest.id%}-divider",
+  "name": "Divider{%=manifest.name%}",
   "app_version": "{%=packageVersions.stable%}",
   "cloudapp_protocol_version": "1.0.0",
   "description": "Insert a simple horizontal divider of configurable thickness",
+  "icon": "{%=baseURLs.prod%}/images/divider.png",
   "developer": {
     "id": "echo",
     "name": "Echo",
@@ -15,7 +16,7 @@
     {
       "id": "instances",
       "title": "Instances",
-      "script": "{%= baseURLs.prod %}/dashboard.js",
+      "script": "{%= baseURLs.prod %}/dashboards.js",
       "component": "Echo.Apps.Divider.Dashboard",
       "config": {},
       "type": "instances"
@@ -23,7 +24,7 @@
   ],
   "client_widget": {
     "component": "Echo.Apps.Divider",
-    "script": "{%= baseURLs.prod %}/app.js"
+    "script": "{%= baseURLs.prod %}/apps.js"
   },
   "plans": [
     {
