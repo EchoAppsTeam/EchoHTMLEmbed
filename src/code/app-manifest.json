@@ -1,7 +1,6 @@
-
 {
-  "id": "{%=manifest.id%}",
-  "name": "{%=manifest.name%}",
+  "id": "{%=manifest.id%}-code",
+  "name": "Code{%=manifest.name%}",
   "app_version": "{%=packageVersions.stable%}",
   "cloudapp_protocol_version": "1.0.0",
   "description": "Embed any HTML content into your Project",
@@ -16,7 +15,7 @@
     {
       "id": "instances",
       "title": "Instances",
-      "script": "{%= baseURLs.prod %}/dashboard.js",
+      "script": "{%= baseURLs.prod %}/dashboards.js",
       "component": "Echo.Apps.HTMLEmbed.Dashboard",
       "config": {},
       "type": "instances"
@@ -24,7 +23,7 @@
   ],
   "client_widget": {
     "component": "Echo.Apps.HTMLEmbed",
-    "script": "{%= baseURLs.prod %}/app.js"
+    "script": "{%= baseURLs.prod %}/apps.js"
   },
   "plans": [
     {
