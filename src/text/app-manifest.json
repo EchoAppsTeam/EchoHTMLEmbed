@@ -1,0 +1,34 @@
+{
+  "id": "{%=manifest.id%}-text",
+  "name": "Text{%=manifest.name%}",
+  "app_version": "{%=packageVersions.stable%}",
+  "cloudapp_protocol_version": "1.0.0",
+  "description": "Insert simple text",
+  "developer": {
+    "id": "echo",
+    "name": "Echo",
+    "url": "http://www.aboutecho.com",
+    "email": "solutions@aboutecho.com",
+    "icon": "http://cdn.echoenabled.com/images/echo.png"
+  },
+  "dashboards": [
+    {
+      "id": "instances",
+      "title": "Instances",
+      "script": "{%= baseURLs.prod %}/dashboards.js",
+      "component": "Echo.Apps.Text.Dashboard",
+      "config": {},
+      "type": "instances"
+    }
+  ],
+  "client_widget": {
+    "component": "Echo.Apps.Text",
+    "script": "{%= baseURLs.prod %}/apps.js"
+  },
+  "plans": [
+    {
+      "id": "default",
+      "name": "Default plan"
+    }
+  ]
+}
