@@ -2,7 +2,7 @@
 	"version": 1,
 	"manifest": {
 		"id": "echo-html-embed",
-		"name": "Code Block"
+		"name": ""
 	},
 	"baseURLs": {
 		"dev": "//cdn.echoenabled.com<%= release.options.versionPath() %>/dev",
