@@ -48,7 +48,8 @@ imageApp.config = {
 	"imageURL": ""
 };
 
-imageApp.css = ".{class} .{class:image} { max-width: 100%; height: auto; }";
+imageApp.css = ".{class} {text-align: center;}" + 
+	".{class} .{class:image} { max-width: 100%; height: auto; vertical-align: bottom;}";
 
 Echo.App.create(imageApp);
 
