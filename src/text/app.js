@@ -6,8 +6,16 @@ var textApp = Echo.App.manifest("Echo.Apps.Text");
 if (Echo.App.isDefined("Echo.Apps.Text")) return;
 
 textApp.config = {
-	"content": ""
+	"content": "",
+	"appkey": "echo.echo.echo-topic-radar-dev.echo.prod" // TODO create the necessary structure to keep this one current
 };
+
+textApp.dependencies = [{
+	"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.js",
+	"loaded": function() { 
+		return !!$.fn.notebook;
+	}
+}];
 
 textApp.templates.main =
 	'<div class="{class:container}">' +
@@ -15,10 +23,37 @@ textApp.templates.main =
 	'</div>';
 
 textApp.renderers.content = function(element) {
-	return element
+	var content = this.config.get("content");
+
+	element
 		.empty()
-		.append(this.config.get("content"));
+		.append(content);
+		
+	if (this.user.is("admin")) {
+		Echo.Loader.download([
+			{"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.css"},
+			{"url": "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"}
+		]);
+
+		// make an editor
+		element.notebook({
+			placeholder: "Write here… "
+		});
+		// TODO establish the process to save results from editor
+
+		
+	}
+
+	return element;
 };
+
+textApp.css = 
+	".{class} .{class:content}.editor { min-height: 1em; }" +
+	".{class} .jquery-notebook.bubble { height: auto; border-radius: 0; background: #28333b;  }" +
+	".{class} .jquery-notebook.bubble:after { background: #28333b;  }" +
+	".{class} .jquery-notebook.bubble button { font-size: 12px; width: 30px; height: 30px; color: white; opacity: 70%; }" + 
+	".{class} .jquery-notebook.bubble button:hover { font-size: 13px; opacity: 1; }" + 
+	".{class} .jquery-notebook.bubble button.active { font-size: 13px; opacity: 1; color: #54b9ee; }";
 
 Echo.App.create(textApp);
 
