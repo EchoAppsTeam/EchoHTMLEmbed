@@ -19,15 +19,6 @@ dashboard.config = {
 				"sample": "<script>\n	//... \n</script>"
 			}
 		}
-	}, {
-		"component": "Select",
-		"name": "appkey",
-		"type": "string",
-		"config": {
-			"title": "StreamServer application key",
-			"desc": "Specifies the application key for this instance",
-			"options": []
-		}
 	}]
 };
 dashboard.init = function() {

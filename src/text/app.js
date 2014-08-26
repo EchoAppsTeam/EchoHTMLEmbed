@@ -20,28 +20,37 @@ textApp.dependencies = [{
 textApp.templates.main =
 	'<div class="{class:container}">' +
 		'<div class="{class:content}"></div>' +
+		'<div class="{class:result}" style="display: none;"><p><small>Please, copy the following to the HTML Code property of this app</small></p>' +
+			'<textarea></textarea>' +
+		'</div>' +
 	'</div>';
 
 textApp.renderers.content = function(element) {
-	var content = this.config.get("content");
+	var self = this, 
+		content = self.config.get("content");
 
 	element
 		.empty()
 		.append(content);
 		
-	if (this.user.is("admin")) {
+	if (self.user.is("admin")) {
 		Echo.Loader.download([
 			{"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.css"},
 			{"url": "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"}
 		]);
 
+		self.view.get("result").show();
 		// make an editor
-		element.notebook({
-			placeholder: "Write here… "
-		});
-		// TODO establish the process to save results from editor
+		element
+			.notebook({
+				placeholder: "Write here… "
+			})
+			.on("contentChange", function(e) {
+				var content = e.originalEvent.detail.content;
+				self.view.get("result").find('textarea').val(content);
+			});
 
-		
+
 	}
 
 	return element;
