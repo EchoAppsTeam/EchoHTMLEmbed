@@ -13,10 +13,10 @@ dashboard.config = {
 		"name": "content",
 		"type": "string",
 		"config": {
-			"title": "HTML code",
+			"title": "Text",
 			"inputHeight": "45",
 			"data": {
-				"sample": "<script>\n	//... \n</script>"
+				"sample": "<h1>Hello!</h1><p>Feel free to set any text here.</p>"
 			}
 		}
 	}]
