@@ -1,35 +1,29 @@
 {
-  "id": "{%=manifest.id%}-image",
-  "name": "Image{%=manifest.name%}",
-  "app_version": "{%=packageVersions.stable%}",
-  "cloudapp_protocol_version": "1.0.0",
-  "description": "Insert static images",
-  "icon": "{%=baseURLs.prod%}/images/image.png",
-  "developer": {
-    "id": "echo",
-    "name": "Echo",
-    "url": "http://www.aboutecho.com",
-    "email": "solutions@aboutecho.com",
-    "icon": "http://cdn.echoenabled.com/images/echo.png"
-  },
-  "dashboards": [
-    {
-      "id": "instances",
-      "title": "Instances",
-      "script": "{%= baseURLs.prod %}/dashboards.js",
-      "component": "Echo.Apps.Image.Dashboard",
-      "config": {},
-      "type": "instances"
-    }
-  ],
-  "client_widget": {
-    "component": "Echo.Apps.Image",
-    "script": "{%= baseURLs.prod %}/apps.js"
-  },
-  "plans": [
-    {
-      "id": "default",
-      "name": "Default plan"
-    }
-  ]
+	"id": "{%=manifest.id%}-image",
+	"name": "Image{%=manifest.name%}",
+	"app_version": "{%=packageVersions.stable%}",
+	"cloudapp_protocol_version": "1.0.0",
+	"description": "Insert static images",
+	"icon": "{%=baseURLs.prod%}/images/image.png",
+	"developer": {
+		"id": "echo",
+		"name": "Echo",
+		"url": "http://www.aboutecho.com",
+		"email": "solutions@aboutecho.com",
+		"icon": "http://cdn.echoenabled.com/images/echo.png"
+	},
+	"dashboards": [
+		{
+			"id": "instances",
+			"title": "Instances",
+			"script": "{%= baseURLs.prod %}/dashboards.js",
+			"component": "Echo.Apps.Image.Dashboard",
+			"config": {},
+			"type": "instances"
+		}
+	],
+	"client_widget": {
+		"component": "Echo.Apps.Image",
+		"script": "{%= baseURLs.prod %}/apps.js"
+	}
 }
