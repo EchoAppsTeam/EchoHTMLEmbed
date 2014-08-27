@@ -13,6 +13,7 @@ imageApp.renderers.image = function(element) {
 
 	// determining the real image size to properly scale it
 	element
+		.hide()
 		.clone()
 		.load(function() {
 			var fitWidth = function(imgSize, rect) {
@@ -29,7 +30,7 @@ imageApp.renderers.image = function(element) {
 				return Math.min.apply(null, widths);
 			};
 
-			element.attr("width", "" + fitWidth([this.width, this.height], targetRect) + "px");
+			element.attr("width", "" + fitWidth([this.width, this.height], targetRect) + "px").show();
 		})
 		.attr("alt", this.config.get("alt"));
 
