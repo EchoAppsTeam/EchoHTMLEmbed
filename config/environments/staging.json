@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"manifest": {
-		"id": "echo-html-embed",
+		"id": "echo-static",
 		"name": " (Staging)"
 	},
 	"baseURLs": {
