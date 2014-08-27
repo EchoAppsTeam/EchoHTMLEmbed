@@ -12,7 +12,7 @@ dashboard.config = {
 		"name": "height",
 		"type": "string",
 		"component": "Input",
-		"default": "0",
+		"default": "30",
 		"config": {
 			"title": "Height (in pixels)",
 			"desc": "Specifies the height of the horizontal line"
