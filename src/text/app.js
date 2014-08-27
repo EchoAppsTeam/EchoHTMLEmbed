@@ -43,7 +43,7 @@ textApp.renderers.content = function(element) {
 		// make an editor
 		element
 			.notebook({
-				placeholder: "Write here… "
+				placeholder: "Write here&hellip;"
 			})
 			.on("contentChange", function(e) {
 				var content = e.originalEvent.detail.content;
