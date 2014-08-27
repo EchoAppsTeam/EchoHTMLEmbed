@@ -5,6 +5,12 @@ var dividerApp = Echo.App.manifest("Echo.Apps.Divider");
 
 if (Echo.App.isDefined("Echo.Apps.Divider")) return;
 
+dividerApp.config = {
+	"color": "#d2d2d2",
+	"width": "1",
+	"style": "solid"
+};
+
 dividerApp.templates.main ='<hr class="{class:line}">';
 
 dividerApp.renderers.line = function(element) {
@@ -15,12 +21,6 @@ dividerApp.renderers.line = function(element) {
 	};
 	element.css(style);
 	return element;
-};
-
-dividerApp.config = {
-	"color": "#d2d2d2",
-	"width": "1",
-	"style": "solid"
 };
 
 dividerApp.css = ".{class} .{class:line} {border: 0 none;}";
