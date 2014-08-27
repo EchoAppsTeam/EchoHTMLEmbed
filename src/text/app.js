@@ -57,9 +57,10 @@ textApp.renderers.content = function(element) {
 };
 
 textApp.css = 
+	".{class} { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; }" + 
 	".{class} .{class:content}.editor { min-height: 1em; }" +
-	".{class} .jquery-notebook.bubble { height: auto; border-radius: 0; background: #28333b;  }" +
-	".{class} .jquery-notebook.bubble:after { background: #28333b;  }" +
+	".{class} .jquery-notebook.bubble { height: auto; border-radius: 0; background: #28333b; }" +
+	".{class} .jquery-notebook.bubble:after { background: #28333b; }" +
 	".{class} .jquery-notebook.bubble button { font-size: 12px; width: 30px; height: 30px; color: white; opacity: 70%; }" + 
 	".{class} .jquery-notebook.bubble button:hover { font-size: 13px; opacity: 1; }" + 
 	".{class} .jquery-notebook.bubble button.active { font-size: 13px; opacity: 1; color: #54b9ee; }";
