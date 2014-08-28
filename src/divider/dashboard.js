@@ -12,14 +12,13 @@ dashboard.config = {
 		"name": "color",
 		"type": "string",
 		"component": "Input",
-		"default": "",
 		"config": {
 			"title": "Line color",
 			"desc": "Specifies the color of the horizontal line"
 		}
 	}, {
 		"name": "width",
-		"type": "string",
+		"type": "number",
 		"component": "Input",
 		"default": "1",
 		"config": {
