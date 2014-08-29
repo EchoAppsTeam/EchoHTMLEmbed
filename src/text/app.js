@@ -21,7 +21,7 @@ textApp.templates.main =
 	'<div class="{class:container}">' +
 		'<div class="{class:content}"></div>' +
 		'<div class="{class:result}" style="display: none;"><p><small>Please, copy the following to the HTML Code property of this app</small></p>' +
-			'<textarea></textarea>' +
+			'<textarea readonly></textarea>' +
 		'</div>' +
 	'</div>';
 
