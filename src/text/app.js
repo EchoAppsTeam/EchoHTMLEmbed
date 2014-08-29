@@ -29,6 +29,63 @@ textApp.renderers.content = function(element) {
 	var self = this,
 		content = self.config.get("content");
 
+	var filterContent = function(content) {
+		var sandbox = $('<div></div>').html(content);
+
+		var sanitizeInPlace, whiteList;
+
+		whiteList = {
+			'b': {},
+			'i': {},
+			'h1': {},
+			'h2': {},
+			'h3': {},
+			'h4': {},
+			'p': {},
+			'br': {},
+			'ul': {},
+			'ol': {},
+			'li': {},
+			'hr': {},
+			'a': {
+				'href': /^(https?\:)?\/\//
+			}
+		};
+
+		sanitizeInPlace = function(DOMElement) {
+			var allowed, item, i;
+
+			for (i = 0; i < DOMElement.children.length; i++) {
+				item = DOMElement.children[i];
+				sanitizeInPlace(item);
+			}
+
+			allowed = whiteList[DOMElement.localName];
+			if (!allowed) {
+				for (i = 0; i < DOMElement.childNodes.length; i++) {
+					item = DOMElement.childNodes[i];
+					DOMElement.parentNode.insertBefore(item, DOMElement);
+				}
+				DOMElement.parentNode.removeChild(DOMElement);
+
+			} else if (DOMElement.hasAttributes()) {
+				for (i = 0; i < DOMElement.attributes.length; i++) {
+					item = DOMElement.attributes[i];
+					if (!(allowed[item.localName] && (item.value.search(allowed[item.localName]) > -1))) {
+						DOMElement.removeAttribute(item.localName);
+					}
+				}
+			}
+		};
+
+		sandbox.children().each(function() {
+			sanitizeInPlace(this);
+		});
+
+		content = sandbox.html();
+		return content;
+	};
+
 	element
 		.empty()
 		.append(content);
@@ -47,7 +104,7 @@ textApp.renderers.content = function(element) {
 				placeholder: "Write here&hellip;"
 			})
 			.on("contentChange", function(e) {
-				var content = e.originalEvent.detail.content;
+				var content = filterContent(e.originalEvent.detail.content);
 				self.view.get("result").find('textarea').val(content);
 			});
 	}
