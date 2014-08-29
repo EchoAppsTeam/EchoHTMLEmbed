@@ -5,17 +5,18 @@ var imageApp = Echo.App.manifest("Echo.Apps.Image");
 
 if (Echo.App.isDefined("Echo.Apps.Image")) return;
 
-imageApp.templates.main = '<image class={class:image}>';
+imageApp.templates.main = '<div class="{class:imageWrapper}"><image class="{class:image}"></div>';
 
 imageApp.renderers.image = function(element) {
 	var targetRect = [this.config.get("width"), this.config.get("height")];
-	element.attr('src', this.config.get('imageURL'));
 
-	// determining the real image size to properly scale it
 	element
 		.hide()
+		.attr("src", this.config.get("imageURL"))
+		.attr("alt", this.config.get("alt"))
 		.clone()
-		.load(function() {
+		.on("load", function() {
+			// determining the real image size to properly scale it
 			var fitWidth = function(imgSize, rect) {
 				var widths = [imgSize[0]],
 					width;
@@ -30,19 +31,31 @@ imageApp.renderers.image = function(element) {
 				return Math.min.apply(null, widths);
 			};
 
-			element.attr("width", "" + fitWidth([this.width, this.height], targetRect) + "px").show();
+			element
+				.attr("width", "" + fitWidth([this.width, this.height], targetRect) + "px")
+				.show();
+
+			$(this).remove();
 		})
-		.attr("alt", this.config.get("alt"));
+		.css({
+			"visibility": "hidden",
+			"position": "absolute",
+			"left": "100%"
+		})
+		.appendTo('body');
 
-	var targetURL = this.config.get("linkURL");
-
-	if (targetURL) {
-		var a = $("<a></a>").attr("href", targetURL);
-		element = element.wrap(a);
-	}
 	return element;
 };
 
+imageApp.renderers.imageWrapper = function(element){
+	var targetURL = this.config.get("linkURL");
+	if (targetURL) {
+		var a = $("<a></a>").attr("href", targetURL);
+		element.find('img').wrap(a);
+	}
+
+	return element;
+};
 
 imageApp.config = {
 	"imageURL": ""
