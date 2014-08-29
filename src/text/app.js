@@ -26,20 +26,21 @@ textApp.templates.main =
 	'</div>';
 
 textApp.renderers.content = function(element) {
-	var self = this, 
+	var self = this,
 		content = self.config.get("content");
 
 	element
 		.empty()
 		.append(content);
-		
-	if (self.user.is("admin")) {
-		Echo.Loader.download([
-			{"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.css"},
-			{"url": "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"}
-		]);
 
-		self.view.get("result").show();
+	if (this.user.is("admin")) {
+		Echo.Loader.download([{
+			"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.css"
+		}, {
+			"url": "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+		}]);
+
+		this.view.get("result").show();
 		// make an editor
 		element
 			.notebook({
@@ -49,8 +50,6 @@ textApp.renderers.content = function(element) {
 				var content = e.originalEvent.detail.content;
 				self.view.get("result").find('textarea').val(content);
 			});
-
-
 	}
 
 	return element;
