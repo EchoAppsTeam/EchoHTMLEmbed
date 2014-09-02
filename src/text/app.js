@@ -103,10 +103,10 @@ textApp.renderers.content = function(element) {
 			.notebook({
 				placeholder: "Write here&hellip;"
 			})
-			.on("contentChange", function(e) {
+			.on("contentChange", Echo.Utils.debounce(function(e) {
 				var content = filterContent(e.originalEvent.detail.content);
 				self.view.get("result").find('textarea').val(content);
-			});
+			}), 300);
 	}
 
 	return element;
