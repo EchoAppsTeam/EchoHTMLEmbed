@@ -19,7 +19,7 @@ dashboard.config = {
 		}
 	}, {
 		"name": "height",
-		"type": "string",
+		"type": "number",
 		"component": "Input",
 		"default": "",
 		"config": {
@@ -28,7 +28,7 @@ dashboard.config = {
 		}
 	}, {
 		"name": "width",
-		"type": "string",
+		"type": "number",
 		"component": "Input",
 		"default": "",
 		"config": {

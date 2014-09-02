@@ -10,7 +10,7 @@ dashboard.inherits = Echo.Utils.getComponent("Echo.AppServer.Dashboards.AppSetti
 dashboard.config = {
 	"ecl": [{
 		"name": "height",
-		"type": "string",
+		"type": "number",
 		"component": "Input",
 		"default": "30",
 		"config": {
