@@ -8,7 +8,7 @@ module.exports = {
 	js: {
 		expand: true,
 		cwd: '<%= dirs.src %>',
-		src: ['<%= sources.js %>', '!*/app.js', '!*/dashboard.js', '!*/third-party/*'],
+		src: ['<%= sources.js %>', '!*/third-party/*'],
 		dest: '<%= dirs.build %>/'
 	},
 	'third-party': {

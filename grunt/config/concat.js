@@ -1,14 +1,16 @@
 module.exports = {
 	dashboard: {
 		src: [
-			'<%= dirs.src %>/*/dashboard.js'
+			'<%= dirs.build %>/*/dashboard.js'
 		],
+		nonull: true,
 		dest: '<%= dirs.build %>/dashboards.js'
 	},
 	app: {
 		src: [
-			'<%= dirs.src %>/*/app.js'
+			'<%= dirs.build %>/*/app.js'
 		],
+		nonull: true,
 		dest: '<%= dirs.build %>/apps.js'
 	}
 };
