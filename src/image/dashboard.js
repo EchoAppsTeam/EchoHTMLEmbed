@@ -11,7 +11,7 @@ dashboard.config = {
 	"ecl": [{
 		"name": "imageURL",
 		"type": "string",
-		"component": "Input",
+		"component": "Filepicker",
 		"default": "",
 		"config": {
 			"title": "Image URL",
