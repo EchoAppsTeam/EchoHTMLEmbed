@@ -21,8 +21,13 @@ dashboard.config = {
 		}
 	}]
 };
+
 dashboard.init = function() {
+	this.set("data.instance.config.topic", this._getSharedTopic());
 	this._autosetAppKey();
+
+	this._listenContentChange();
+
 	this.parent();
 };
 
@@ -47,6 +52,17 @@ dashboard.methods._getAllAppKeys = function(callback) {
 	}
 };
 
+dashboard.methods._saveConfig = function() {
+	Echo.AppServer.API.request({
+		"endpoint": "instance/" + this.get("data.instance.id") + "/update",
+		"data": {
+			"data": {
+				"config": this.get("data.instance.config")
+			}
+		}
+	}).send();
+};
+
 dashboard.methods._autosetAppKey = function() {
 	this._getAllAppKeys(function() {
 		var keys = this.get("appkeys");
@@ -61,6 +77,41 @@ dashboard.methods._autosetAppKey = function() {
 		}
 	});
 };
+
+dashboard.methods._getSharedTopic = function() {
+	return this.config.get("context");
+};
+
+dashboard.methods._listenContentChange = function() {
+	var self = this;
+	Echo.AppServer.FrameMessages.subscribe(function(data) {
+		if ((data.topic === self._getSharedTopic()) && data.content) {
+			data.content = Echo.AppServer.Utils.filterContent(data.content, {
+				'b': {},
+				'i': {},
+				'h1': {},
+				'h2': {},
+				'h3': {},
+				'h4': {},
+				'p': {},
+				'br': {},
+				'ul': {},
+				'ol': {},
+				'li': {},
+				'hr': {},
+				'a': {
+					'href': /^(https?\:)?\/\//
+				}
+			});
+			self.set("data.instance.config.content", data.content);
+			self.configurator.setValue({
+				"content": data.content
+			});
+			self._saveConfig();
+		}
+	});
+};
+
 
 Echo.AppServer.Dashboard.create(dashboard);
 

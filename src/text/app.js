@@ -10,106 +10,71 @@ textApp.config = {
 	"appkey": ""
 };
 
-textApp.dependencies = [{
-	"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.js",
-	"loaded": function() { 
-		return !!$.fn.notebook;
-	}
-}];
-
 textApp.templates.main =
 	'<div class="{class:container}">' +
 		'<div class="{class:content}"></div>' +
-		'<div class="{class:result}" style="display: none;"><p><small>Please, copy the following to the HTML Code property of this app</small></p>' +
-			'<textarea readonly></textarea>' +
-		'</div>' +
 	'</div>';
 
 textApp.renderers.content = function(element) {
-	var self = this,
-		content = self.config.get("content");
-
-	var filterContent = function(content) {
-		var sandbox = $('<div></div>').html(content);
-
-		var sanitizeInPlace, whiteList;
-
-		whiteList = {
-			'b': {},
-			'i': {},
-			'h1': {},
-			'h2': {},
-			'h3': {},
-			'h4': {},
-			'p': {},
-			'br': {},
-			'ul': {},
-			'ol': {},
-			'li': {},
-			'hr': {},
-			'a': {
-				'href': /^(https?\:)?\/\//
-			}
-		};
-
-		sanitizeInPlace = function(DOMElement) {
-			var allowed, item, i;
-
-			for (i = 0; i < DOMElement.children.length; i++) {
-				item = DOMElement.children[i];
-				sanitizeInPlace(item);
-			}
-
-			allowed = whiteList[DOMElement.localName];
-			if (!allowed) {
-				for (i = 0; i < DOMElement.childNodes.length; i++) {
-					item = DOMElement.childNodes[i];
-					DOMElement.parentNode.insertBefore(item, DOMElement);
-				}
-				DOMElement.parentNode.removeChild(DOMElement);
-
-			} else if (DOMElement.hasAttributes()) {
-				for (i = 0; i < DOMElement.attributes.length; i++) {
-					item = DOMElement.attributes[i];
-					if (!(allowed[item.localName] && (item.value.search(allowed[item.localName]) > -1))) {
-						DOMElement.removeAttribute(item.localName);
-					}
-				}
-			}
-		};
-
-		sandbox.children().each(function() {
-			sanitizeInPlace(this);
-		});
-
-		content = sandbox.html();
-		return content;
-	};
+	var content = this.config.get("content");
 
 	element
 		.empty()
 		.append(content);
 
 	if (this.user.is("admin")) {
-		Echo.Loader.download([{
-			"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.css"
-		}, {
-			"url": "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-		}]);
+		this.installEditor(element);
+	}
 
-		this.view.get("result").show();
+	return element;
+};
+
+textApp.methods.saveContent = function(content) {
+	content = Echo.AppServer.Utils.filterContent(content, {
+		'b': {},
+		'i': {},
+		'h1': {},
+		'h2': {},
+		'h3': {},
+		'h4': {},
+		'p': {},
+		'br': {},
+		'ul': {},
+		'ol': {},
+		'li': {},
+		'hr': {},
+		'a': {
+			'href': /^(https?\:)?\/\//
+		}
+	});
+	Echo.AppServer.FrameMessages.post(window.parent, {
+		"topic": this.config.get("topic"),
+		"content": content
+	}, "*");
+};
+
+textApp.methods.installEditor = function(element) {
+	var self = this;
+		
+	Echo.Loader.download([{
+		"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.js",
+		"loaded": function() {
+			return !!$.fn.notebook;
+		}
+	}, {
+		"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.css"
+	}, {
+		"url": "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	}], function (){
 		// make an editor
 		element
 			.notebook({
 				placeholder: "Write here&hellip;"
 			})
 			.on("contentChange", Echo.Utils.debounce(function(e) {
-				var content = filterContent(e.originalEvent.detail.content);
-				self.view.get("result").find('textarea').val(content);
-			}), 300);
-	}
-
-	return element;
+				self.saveContent(e.originalEvent.detail.content);
+			}, 300));
+	});
 };
 
 textApp.css = 
