@@ -22,7 +22,44 @@ dashboard.config = {
 	}]
 };
 dashboard.init = function() {
+	this._autosetAppKey();
 	this.parent();
+};
+
+dashboard.methods._getAllAppKeys = function(callback) {
+	var self = this;
+	var customerId = this.config.get("data.customer.id");
+	var request = this.config.get("request");
+	var keys = this.get("appkeys");
+
+	callback = callback || $.noop;
+
+	if (keys && keys.length > 0) {
+		callback.call(this);
+	} else {
+		request({
+			"endpoint": "customer/" + customerId + "/appkeys",
+			"success": function(response) {
+				self.set("appkeys", response);
+				callback.call(self);
+			}
+		});
+	}
+};
+
+dashboard.methods._autosetAppKey = function() {
+	this._getAllAppKeys(function() {
+		var keys = this.get("appkeys");
+		if (keys && keys[0] && keys[0].key) {
+			this.set("data.instance.config.appkey", keys[0].key);
+			this.update({
+				"config": this.get("data.instance.config"),
+				"instance": {
+					"id": this.get("data.instance.id")
+				}
+			});
+		}
+	});
 };
 
 Echo.AppServer.Dashboard.create(dashboard);

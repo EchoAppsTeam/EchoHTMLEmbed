@@ -7,7 +7,7 @@ if (Echo.App.isDefined("Echo.Apps.Text")) return;
 
 textApp.config = {
 	"content": "",
-	"appkey": "echo.echo.echo-topic-radar-dev.echo.prod" // TODO create the necessary structure to keep this one current
+	"appkey": ""
 };
 
 textApp.dependencies = [{
