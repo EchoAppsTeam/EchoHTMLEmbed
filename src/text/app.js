@@ -22,29 +22,29 @@ textApp.renderers.content = function(element) {
 		.empty()
 		.append(content);
 
-	if (this.user.is("admin")) {
+	// if (this.user.is("admin")) {
 		this.installEditor(element);
-	}
+	// }
 
 	return element;
 };
 
 textApp.methods.saveContent = function(content) {
 	content = Echo.AppServer.Utils.filterContent(content, {
-		'b': {},
-		'i': {},
-		'h1': {},
-		'h2': {},
-		'h3': {},
-		'h4': {},
-		'p': {},
-		'br': {},
-		'ul': {},
-		'ol': {},
-		'li': {},
-		'hr': {},
-		'a': {
-			'href': /^(https?\:)?\/\//
+		"b": {},
+		"i": {},
+		"h1": {},
+		"h2": {},
+		"h3": {},
+		"h4": {},
+		"p": {},
+		"br": {},
+		"ul": {},
+		"ol": {},
+		"li": {},
+		"hr": {},
+		"a": {
+			"href": /^(https?\:)?\/\//
 		}
 	});
 	Echo.AppServer.FrameMessages.post(window.parent, {
