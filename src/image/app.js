@@ -5,7 +5,7 @@ var imageApp = Echo.App.manifest("Echo.Apps.Image");
 
 if (Echo.App.isDefined("Echo.Apps.Image")) return;
 
-imageApp.templates.main = '<div class="{class:imageWrapper}"><image class="{class:image}"></div>';
+imageApp.templates.main = '<div class="{class:imageWrapper}"><img class="{class:image}"/></div>';
 
 imageApp.renderers.image = function(element) {
 	var targetRect = [this.config.get("width"), this.config.get("height")];
