@@ -12,16 +12,14 @@
 		"email": "solutions@aboutecho.com",
 		"icon": "http://cdn.echoenabled.com/images/echo.png"
 	},
-	"dashboards": [
-		{
-			"id": "instances",
-			"title": "Instances",
-			"script": "{%= baseURLs.prod %}/dashboards.js",
-			"component": "Echo.Apps.Divider.Dashboard",
-			"config": {},
-			"type": "instances"
-		}
-	],
+	"dashboards": [{
+		"id": "instances",
+		"title": "Instances",
+		"script": "{%= baseURLs.prod %}/dashboards.js",
+		"component": "Echo.Apps.Divider.Dashboard",
+		"config": {},
+		"type": "instances"
+	}],
 	"client_widget": {
 		"component": "Echo.Apps.Divider",
 		"script": "{%= baseURLs.prod %}/apps.js"
