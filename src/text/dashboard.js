@@ -14,7 +14,7 @@ dashboard.config = {
 		"type": "string",
 		"config": {
 			"title": "Text",
-			"inputHeight": "45",
+			"inputHeight": 45,
 			"data": {
 				"sample": "<h1>Hello!</h1><p>Feel free to set any text here.</p>"
 			}
@@ -87,20 +87,20 @@ dashboard.methods._listenContentChange = function() {
 	Echo.AppServer.FrameMessages.subscribe(function(data) {
 		if ((data.topic === self._getSharedTopic()) && data.content) {
 			data.content = Echo.AppServer.Utils.filterContent(data.content, {
-				'b': {},
-				'i': {},
-				'h1': {},
-				'h2': {},
-				'h3': {},
-				'h4': {},
-				'p': {},
-				'br': {},
-				'ul': {},
-				'ol': {},
-				'li': {},
-				'hr': {},
-				'a': {
-					'href': /^(https?\:)?\/\//
+				"b": {},
+				"i": {},
+				"h1": {},
+				"h2": {},
+				"h3": {},
+				"h4": {},
+				"p": {},
+				"br": {},
+				"ul": {},
+				"ol": {},
+				"li": {},
+				"hr": {},
+				"a": {
+					"href": /^(https?\:)?\/\//
 				}
 			});
 			self.set("data.instance.config.content", data.content);

@@ -23,7 +23,7 @@ dividerApp.renderers.line = function(element) {
 	return element;
 };
 
-dividerApp.css = ".{class} .{class:line} {border: 0 none;}";
+dividerApp.css = ".{class} .{class:line} { border: 0 none; }";
 
 Echo.App.create(dividerApp);
 

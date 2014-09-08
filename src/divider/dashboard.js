@@ -20,7 +20,7 @@ dashboard.config = {
 		"name": "width",
 		"type": "number",
 		"component": "Input",
-		"default": "1",
+		"default": 1,
 		"config": {
 			"title": "Line width (in pixels)",
 			"desc": "Specifies the width of the horizontal line"

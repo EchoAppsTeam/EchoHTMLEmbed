@@ -23,7 +23,7 @@ imageApp.renderers.image = function(element) {
 				for (var i = 0; i < 2; i++) {
 					if (rect[i] > 0) {
 						width = imgSize[0] * rect[i] / imgSize[i];
-						if ((width > 0)) {
+						if (width > 0) {
 							widths.push(width);
 						}
 					}
@@ -51,7 +51,7 @@ imageApp.renderers.imageWrapper = function(element){
 	var targetURL = this.config.get("linkURL");
 	if (targetURL) {
 		var a = $("<a></a>").attr("href", targetURL);
-		element.find('img').wrap(a);
+		element.find("img").wrap(a);
 	}
 
 	return element;
@@ -61,8 +61,8 @@ imageApp.config = {
 	"imageURL": ""
 };
 
-imageApp.css = ".{class} {text-align: center;}" + 
-	".{class} .{class:image} { max-width: 100%; height: auto; vertical-align: bottom;}";
+imageApp.css = ".{class} { text-align: center; }" + 
+	".{class} .{class:image} { max-width: 100%; height: auto; vertical-align: bottom; }";
 
 Echo.App.create(imageApp);
 
