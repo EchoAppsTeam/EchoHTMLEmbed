@@ -11,7 +11,6 @@ imageApp.renderers.image = function(element) {
 	var targetRect = [this.config.get("width"), this.config.get("height")];
 
 	element
-		.hide()
 		.attr("src", this.config.get("imageURL"))
 		.attr("alt", this.config.get("alt"))
 		.clone()
@@ -32,17 +31,18 @@ imageApp.renderers.image = function(element) {
 			};
 
 			element
-				.attr("width", "" + fitWidth([this.width, this.height], targetRect) + "px")
+				.attr("width", fitWidth([this.width, this.height], targetRect) + "px")
 				.show();
 
 			$(this).remove();
 		})
+		.hide()
 		.css({
 			"visibility": "hidden",
 			"position": "absolute",
 			"left": "100%"
 		})
-		.appendTo('body');
+		.appendTo("body");
 
 	return element;
 };
