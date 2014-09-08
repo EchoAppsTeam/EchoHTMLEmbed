@@ -14,8 +14,8 @@ dashboard.config = {
 		"component": "Input",
 		"default": 30,
 		"config": {
-			"title": "Height (in pixels)",
-			"desc": "Specifies the height of the horizontal line"
+			"title": "Height",
+			"desc": "Specifies the height of the space"
 		}
 	}]
 };

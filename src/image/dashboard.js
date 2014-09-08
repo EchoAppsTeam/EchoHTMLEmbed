@@ -14,8 +14,8 @@ dashboard.config = {
 		"component": "Filepicker",
 		"default": "",
 		"config": {
-			"title": "Image URL",
-			"desc": "Specifies URL the image will be loaded from"
+			"title": "Image",
+			"desc": "Specifies the image URL"
 		}
 	}, {
 		"name": "height",
@@ -23,8 +23,8 @@ dashboard.config = {
 		"component": "Input",
 		"default": "",
 		"config": {
-			"title": "Height",
-			"desc": "Specifies height of the image"
+			"title": "Max Height",
+			"desc": "Specifies the maximum height of the image"
 		}
 	}, {
 		"name": "width",
@@ -32,8 +32,8 @@ dashboard.config = {
 		"component": "Input",
 		"default": "",
 		"config": {
-			"title": "Width",
-			"desc": "Specifies width of the image"
+			"title": "Max Width",
+			"desc": "Specifies the maximum width of the image"
 		}
 	}, {
 		"name": "alt",
@@ -41,8 +41,8 @@ dashboard.config = {
 		"component": "Input",
 		"default": "",
 		"config": {
-			"title": "Alt text",
-			"desc": "Sets the alt text for image"
+			"title": "Tooltip",
+			"desc": "Specifies text to be displayed on cursor hover"
 		}
 	}, {
 		"name": "linkURL",
@@ -50,8 +50,8 @@ dashboard.config = {
 		"component": "Input",
 		"default": "",
 		"config": {
-			"title": "Hyperlink URL",
-			"desc": "Sets the URL for hyperlink around the image"
+			"title": "Link",
+			"desc": "Specifies hyperlink URL. Leave blank for no link."
 		}
 	}]
 };
