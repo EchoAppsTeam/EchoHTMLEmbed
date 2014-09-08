@@ -12,6 +12,7 @@ dashboard.config = {
 		"name": "color",
 		"type": "string",
 		"component": "Input",
+		"default": "#d8d8d8",
 		"config": {
 			"title": "Line color",
 			"desc": "Specifies the color of the horizontal line"
@@ -22,7 +23,7 @@ dashboard.config = {
 		"component": "Input",
 		"default": 1,
 		"config": {
-			"title": "Line width (in pixels)",
+			"title": "Line width",
 			"desc": "Specifies the width of the horizontal line"
 		}
 	}, {
@@ -32,8 +33,8 @@ dashboard.config = {
 		"default": "solid",
 		"config": {
 			"title": "Line style",
-			"desc": "Specifies the look of the horizontal line",
-			"options": [ {
+			"desc": "Specifies the style of the horizontal line",
+			"options": [{
 				"title": "none",
 				"value": "none"
 			}, {
