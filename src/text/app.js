@@ -30,7 +30,7 @@ textApp.renderers.content = function(element) {
 };
 
 textApp.methods.saveContent = function(content) {
-	content = Echo.AppServer.Utils.filterContent(content, {
+	content = Echo.Apps.Text.Utils.filterContent(content, {
 		"b": {},
 		"i": {},
 		"h1": {},

@@ -1,9 +1,11 @@
 (function($) {
 "use strict";
 
-if (!window.Echo.AppServer.Utils) window.Echo.AppServer.Utils = {};
+if (!window.Echo.Apps.Text) return;
 
-Echo.AppServer.Utils.filterContent = function(content, whiteList) {
+if (!window.Echo.Apps.Text.Utils) window.Echo.Apps.Text.Utils = {};
+
+Echo.Apps.Text.Utils.filterContent = function(content, whiteList) {
 		var sandbox = $('<div></div>').html(content);
 
 		var sanitizeInPlace = function(DOMElement) {
