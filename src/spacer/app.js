@@ -6,7 +6,7 @@ var spacerApp = Echo.App.manifest("Echo.Apps.Spacer");
 if (Echo.App.isDefined("Echo.Apps.Spacer")) return;
 
 spacerApp.config = {
-	"height": 0
+	"height": 30
 };
 
 spacerApp.templates.main ='<div class="{class:spacer}">';
