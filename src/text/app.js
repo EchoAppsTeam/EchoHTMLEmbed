@@ -22,9 +22,9 @@ textApp.renderers.content = function(element) {
 		.empty()
 		.append(content);
 
-	// if (this.user.is("admin")) {
+	if (this.user.is("admin")) {
 		this.installEditor(element);
-	// }
+	}
 
 	return element;
 };
