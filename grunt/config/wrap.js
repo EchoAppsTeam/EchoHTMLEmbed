@@ -13,7 +13,7 @@ module.exports = {
 		files: [{
 			expand: true,
 			cwd: '<%= dirs.build %>',
-			src: ['*/third-party/<%= sources.js %>']
+			src: ['*/third-party/**/*.js']
 		}]
 	}
 };
