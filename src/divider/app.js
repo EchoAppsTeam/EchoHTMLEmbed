@@ -7,7 +7,7 @@ if (Echo.App.isDefined("Echo.Apps.Divider")) return;
 
 dividerApp.config = {
 	"color": "#d2d2d2",
-	"width": "1",
+	"width": 1,
 	"style": "solid"
 };
 
