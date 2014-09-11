@@ -15,8 +15,8 @@ module.exports = {
 		expand: true,
 		cwd: '<%= dirs.src %>',
 		src: [
-			'*/third-party/<%= sources.js%>',
-			'*/third-party/*.css'
+			'*/third-party/**/*.js',
+			'*/third-party/**/*.css'
 		],
 		dest: '<%= dirs.build %>/'
 	}
