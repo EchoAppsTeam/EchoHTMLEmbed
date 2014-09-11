@@ -10,6 +10,10 @@ textApp.config = {
 	"appkey": ""
 };
 
+textApp.labels = {
+	"editorPlaceholder": "Write here&hellip;"
+};
+
 textApp.templates.main =
 	'<div class="{class:container}">' +
 		'<div class="{class:content}"></div>' +
@@ -69,7 +73,9 @@ textApp.methods.installEditor = function(element) {
 		// make an editor
 		element
 			.notebook({
-				placeholder: "Write here&hellip;"
+				placeholder: self.labels.get("editorPlaceholder"),
+				movingBubble: false,
+				modifiers: ["bold", "italic", "underline", "h1", "h2", "h3", "ol", "ul", "anchor"]
 			})
 			.on("contentChange", Echo.Utils.debounce(function(e) {
 				self.saveContent(e.originalEvent.detail.content);

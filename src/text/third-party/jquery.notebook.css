@@ -17,8 +17,11 @@
     pointer-events: none;
 }
 
-.jquery-notebook p:first-child, .jquery-notebook p.placeholder + p {
+.jquery-notebook p:first-child {
     margin-top: 0;
+}
+.jquery-notebook p.placeholder + p {
+    margin: 0;
 }
 
 .jquery-notebook.bubble {
@@ -69,6 +72,10 @@
     transform: rotate(45deg);
     background: #282827;
     box-shadow: 2px 2px 1px rgba(0,0,0,0.1); /* Triangle shadow */
+}
+
+.jquery-notebook.bubble.fixed:after {
+    display: none;
 }
 
 .jquery-notebook.bubble ul {
@@ -126,6 +133,11 @@
 .jquery-notebook.bubble button.h2:after {
     font-family: inherit;
     content: "h2";
+}
+
+.jquery-notebook.bubble button.h3:after {
+    font-family: inherit;
+    content: "h3";
 }
 
 .jquery-notebook.bubble button.ul:after {
