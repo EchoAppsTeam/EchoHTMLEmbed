@@ -5,13 +5,19 @@ var imageApp = Echo.App.manifest("Echo.Apps.Image");
 
 if (Echo.App.isDefined("Echo.Apps.Image")) return;
 
+imageApp.config = {
+	"imageURL": "",
+	"linkURL": ""
+};
+
 imageApp.templates.main = '<div class="{class:imageWrapper}"><img class="{class:image}"/></div>';
 
 imageApp.renderers.image = function(element) {
 	var targetRect = [this.config.get("width"), this.config.get("height")];
+	var url = this.config.get("imageURL") || "{%= baseURLs.prod %}/images/no-image.png";
 
 	element
-		.attr("src", this.config.get("imageURL"))
+		.attr("src", url)
 		.attr("alt", this.config.get("alt"))
 		.clone()
 		.on("load", function() {
@@ -36,13 +42,14 @@ imageApp.renderers.image = function(element) {
 
 			$(this).remove();
 		})
-		.hide()
 		.css({
 			"visibility": "hidden",
 			"position": "absolute",
 			"left": "100%"
 		})
 		.appendTo("body");
+
+	element.hide();
 
 	return element;
 };
@@ -57,12 +64,8 @@ imageApp.renderers.imageWrapper = function(element){
 	return element;
 };
 
-imageApp.config = {
-	"imageURL": ""
-};
-
 imageApp.css = ".{class} { text-align: center; }" + 
-	".{class} .{class:image} { max-width: 100%; height: auto; vertical-align: bottom; }";
+	".{class} .{class:image} { max-width: 100%; height: auto; vertical-align: bottom; border: 0 none; }";
 
 Echo.App.create(imageApp);
 

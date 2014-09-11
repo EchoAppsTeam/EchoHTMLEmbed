@@ -12,7 +12,6 @@ dashboard.config = {
 		"name": "imageURL",
 		"type": "string",
 		"component": "Filepicker",
-		"default": "",
 		"config": {
 			"title": "Image",
 			"desc": "Specifies the image URL"
@@ -21,7 +20,6 @@ dashboard.config = {
 		"name": "height",
 		"type": "number",
 		"component": "Input",
-		"default": "",
 		"config": {
 			"title": "Max Height",
 			"desc": "Specifies the maximum height of the image"
@@ -30,7 +28,6 @@ dashboard.config = {
 		"name": "width",
 		"type": "number",
 		"component": "Input",
-		"default": "",
 		"config": {
 			"title": "Max Width",
 			"desc": "Specifies the maximum width of the image"
@@ -39,7 +36,6 @@ dashboard.config = {
 		"name": "alt",
 		"type": "string",
 		"component": "Input",
-		"default": "",
 		"config": {
 			"title": "Tooltip",
 			"desc": "Specifies text to be displayed on cursor hover"
@@ -48,7 +44,6 @@ dashboard.config = {
 		"name": "linkURL",
 		"type": "string",
 		"component": "Input",
-		"default": "",
 		"config": {
 			"title": "Link",
 			"desc": "Specifies hyperlink URL. Leave blank for no link."
