@@ -9,11 +9,11 @@ spacerApp.config = {
 	"height": 30
 };
 
-spacerApp.templates.main ='<div class="{class:spacer}">';
+spacerApp.templates.main = '<div class="{class:spacer}">';
 
 spacerApp.renderers.spacer = function(element) {
 	var style = {
-		'height': "" + (parseInt(this.config.get("height"), 10) || 0) + "px"
+		"height": (this.config.get("height") || 0) + "px"
 	};
 	element.css(style);
 
