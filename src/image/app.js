@@ -10,7 +10,7 @@ imageApp.config = {
 	"linkURL": ""
 };
 
-imageApp.templates.main = '<div class="{class:imageWrapper}"><img class="{class:image}"/></div>';
+imageApp.templates.main = '<div class="{class:imageWrapper}"><img class="{class:image}"></div>';
 
 imageApp.renderers.image = function(element) {
 	var targetRect = [this.config.get("width"), this.config.get("height")];
