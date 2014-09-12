@@ -16,7 +16,7 @@ textApp.labels = {
 
 textApp.templates.main =
 	'<div class="{class:container}">' +
-		'<div class="{class:content}"></div>' +
+	'<div class="{class:content}"></div>' +
 	'</div>';
 
 textApp.renderers.content = function(element) {
@@ -40,7 +40,7 @@ textApp.methods.saveContent = function(content) {
 
 textApp.methods.installEditor = function(element) {
 	var self = this;
-		
+
 	Echo.Loader.download([{
 		"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.js",
 		"loaded": function() {
@@ -50,7 +50,7 @@ textApp.methods.installEditor = function(element) {
 		"url": "{%= baseURLs.prod %}/text/third-party/jquery.notebook.css"
 	}, {
 		"url": "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-	}], function (){
+	}], function() {
 		// make an editor
 		element
 			.notebook({
@@ -64,13 +64,13 @@ textApp.methods.installEditor = function(element) {
 	});
 };
 
-textApp.css = 
-	".{class} { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; }" + 
+textApp.css =
+	".{class} { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; }" +
 	".{class} .{class:content}.editor { min-height: 1em; }" +
 	".{class} .jquery-notebook.bubble { height: auto; border-radius: 0; background: #28333b; }" +
 	".{class} .jquery-notebook.bubble:after { background: #28333b; }" +
-	".{class} .jquery-notebook.bubble button { font-size: 12px; width: 30px; height: 30px; color: white; opacity: 70%; }" + 
-	".{class} .jquery-notebook.bubble button:hover { font-size: 13px; opacity: 1; }" + 
+	".{class} .jquery-notebook.bubble button { font-size: 12px; width: 30px; height: 30px; color: white; opacity: 70%; }" +
+	".{class} .jquery-notebook.bubble button:hover { font-size: 13px; opacity: 1; }" +
 	".{class} .jquery-notebook.bubble button.active { font-size: 13px; opacity: 1; color: #54b9ee; }";
 
 Echo.App.create(textApp);
