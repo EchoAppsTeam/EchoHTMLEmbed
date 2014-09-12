@@ -80,30 +80,29 @@ dashboard.methods._getSharedTopic = function() {
 dashboard.methods._listenContentChange = function() {
 	var self = this;
 	Echo.AppServer.FrameMessages.subscribe(function(data) {
-		if ((data.topic === self._getSharedTopic()) && data.content) {
-			data.content = Echo.Apps.Text.Utils.filterContent(data.content, {
-				"b": {},
-				"i": {},
-				"h1": {},
-				"h2": {},
-				"h3": {},
-				"h4": {},
-				"p": {},
-				"br": {},
-				"ul": {},
-				"ol": {},
-				"li": {},
-				"hr": {},
-				"a": {
-					"href": /^(https?\:)?\/\//
-				}
-			});
-			self.set("data.instance.config.content", data.content);
-			self.configurator.setValue({
-				"content": data.content
-			});
-			self._saveConfig();
-		}
+		if (!((data.topic === self._getSharedTopic()) && data.content)) return;
+		data.content = Echo.Apps.Text.Utils.filterContent(data.content, {
+			"b": {},
+			"i": {},
+			"h1": {},
+			"h2": {},
+			"h3": {},
+			"h4": {},
+			"p": {},
+			"br": {},
+			"ul": {},
+			"ol": {},
+			"li": {},
+			"hr": {},
+			"a": {
+				"href": /^(https?\:)?\/\//
+			}
+		});
+		self.set("data.instance.config.content", data.content);
+		self.configurator.setValue({
+			"content": data.content
+		});
+		self._saveConfig();
 	});
 };
 
