@@ -19,6 +19,7 @@ imageApp.renderers.image = function(element) {
 	element
 		.attr("src", url)
 		.attr("alt", this.config.get("alt"))
+		.attr("title", this.config.get("alt"))
 		.clone()
 		.on("load", function() {
 			// determining the real image size to properly scale it
