@@ -20,11 +20,9 @@ textApp.templates.main =
 	'</div>';
 
 textApp.renderers.content = function(element) {
-	var content = this.config.get("content");
-
 	element
 		.empty()
-		.append(content);
+		.append(this.config.get("content"));
 
 	if (this.user.is("admin")) {
 		this.installEditor(element);
@@ -34,23 +32,6 @@ textApp.renderers.content = function(element) {
 };
 
 textApp.methods.saveContent = function(content) {
-	content = Echo.Apps.Text.Utils.filterContent(content, {
-		"b": {},
-		"i": {},
-		"h1": {},
-		"h2": {},
-		"h3": {},
-		"h4": {},
-		"p": {},
-		"br": {},
-		"ul": {},
-		"ol": {},
-		"li": {},
-		"hr": {},
-		"a": {
-			"href": /^(https?\:)?\/\//
-		}
-	});
 	Echo.AppServer.FrameMessages.post(window.parent, {
 		"topic": this.config.get("topic"),
 		"content": content
