@@ -9,8 +9,7 @@ module.exports = {
 	},
 	app: {
 		src: [
-			'<%= dirs.build %>/*/app.js',
-			'<%= dirs.build %>/text/utils.js'
+			'<%= dirs.build %>/*/app.js'
 		],
 		nonull: true,
 		dest: '<%= dirs.build %>/apps.js'
