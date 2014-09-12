@@ -71,7 +71,10 @@ textApp.css =
 	".{class} .jquery-notebook.bubble:after { background: #28333b; }" +
 	".{class} .jquery-notebook.bubble button { font-size: 12px; width: 30px; height: 30px; color: white; opacity: 70%; }" +
 	".{class} .jquery-notebook.bubble button:hover { font-size: 13px; opacity: 1; }" +
-	".{class} .jquery-notebook.bubble button.active { font-size: 13px; opacity: 1; color: #54b9ee; }";
+	".{class} .jquery-notebook.bubble button.active { font-size: 13px; opacity: 1; color: #54b9ee; }" + 
+	".{class} .jquery-notebook p.placeholder + p { margin: 0; }" +
+	".{class} .jquery-notebook.bubble.fixed:after { display: none; }" +
+	".{class} .jquery-notebook.bubble button.h3:after { font-family: inherit; content: 'h3'; }";
 
 Echo.App.create(textApp);
 
