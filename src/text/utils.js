@@ -6,7 +6,7 @@ if (!window.Echo.Apps.Text) return;
 if (!window.Echo.Apps.Text.Utils) window.Echo.Apps.Text.Utils = {};
 
 Echo.Apps.Text.Utils.filterContent = function(content, whiteList) {
-		var sandbox = $('<div></div>').html(content);
+		var sandbox = $('<div></div>').html(Echo.Utils.sanitize(content, "html"));
 
 		var sanitizeInPlace = function(DOMElement) {
 			var allowed, item, i;
