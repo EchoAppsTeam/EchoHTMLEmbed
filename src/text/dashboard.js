@@ -80,7 +80,7 @@ dashboard.methods._getSharedTopic = function() {
 dashboard.methods._listenContentChange = function() {
 	var self = this;
 	Echo.AppServer.FrameMessages.subscribe(function(data) {
-		if (!((data.topic === self._getSharedTopic()) && data.content)) return;
+		if (!data.content || (data.topic !== self._getSharedTopic())) return;
 		data.content = Echo.Apps.Text.Utils.filterContent(data.content, {
 			"b": {},
 			"i": {},
