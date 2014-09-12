@@ -25,7 +25,7 @@ dashboard.config = {
 
 dashboard.init = function() {
 	this.set("data.instance.config.topic", this._getSharedTopic());
-	this._autosetAppKey();
+	this._getAllAppKeys();
 
 	this._listenContentChange();
 
@@ -64,19 +64,13 @@ dashboard.methods._saveConfig = function() {
 	}).send();
 };
 
-dashboard.methods._autosetAppKey = function() {
-	this._getAllAppKeys(function() {
-		var keys = this.get("appkeys");
-		if (keys && keys[0] && keys[0].key) {
-			this.set("data.instance.config.appkey", keys[0].key);
-			this.update({
-				"config": this.get("data.instance.config"),
-				"instance": {
-					"id": this.get("data.instance.id")
-				}
-			});
-		}
-	});
+dashboard.methods.declareInitialConfig = function() {
+	var keys = this.get("appkeys");
+	var result = {};
+	if (keys && keys[0] && keys[0].key) {
+		result.appkey = keys[0].key;
+	}
+	return result;
 };
 
 dashboard.methods._getSharedTopic = function() {
