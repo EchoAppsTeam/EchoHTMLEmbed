@@ -11,12 +11,12 @@ dividerApp.config = {
 	"style": "solid"
 };
 
-dividerApp.templates.main ='<hr class="{class:line}">';
+dividerApp.templates.main = '<hr class="{class:line}">';
 
 dividerApp.renderers.line = function(element) {
 	var style = {
 		"border-top-color": this.config.get("color"),
-		"border-top-width": "" + (parseInt(this.config.get("width"),10) || 0) + "px",
+		"border-top-width": (this.config.get("width") || 0) + "px",
 		"border-top-style": this.config.get("style")
 	};
 	element.css(style);
