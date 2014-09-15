@@ -25,11 +25,8 @@ dashboard.config = {
 
 dashboard.init = function() {
 	this.set("data.instance.config.topic", this._getSharedTopic());
-	this._getAllAppKeys();
-
+	this._getAllAppKeys($.proxy(this.parent, this));
 	this._listenContentChange();
-
-	this.parent();
 };
 
 dashboard.methods._getAllAppKeys = function(callback) {
