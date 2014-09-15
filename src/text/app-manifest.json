@@ -4,6 +4,7 @@
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Insert simple text",
+	"icon": "{%=baseURLs.prod%}/images/text.png",
 	"developer": {
 		"id": "echo",
 		"name": "Echo",

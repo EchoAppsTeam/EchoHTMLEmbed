@@ -4,7 +4,7 @@
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Insert a gap of configurable size",
-	"icon": "{%=baseURLs.prod%}/images/icon.png",
+	"icon": "{%=baseURLs.prod%}/images/spacer.png",
 	"developer": {
 		"id": "echo",
 		"name": "Echo",

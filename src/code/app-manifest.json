@@ -4,6 +4,7 @@
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Embed any HTML content into your Project",
+	"icon": "{%=baseURLs.prod%}/images/code.png",
 	"developer": {
 		"id": "echo",
 		"name": "Echo",
