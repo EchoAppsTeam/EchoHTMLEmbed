@@ -24,6 +24,7 @@ dashboard.config = {
 };
 
 dashboard.init = function() {
+	var self = this;
 	this.set("data.instance.config.topic", this._getSharedTopic());
 	this._getAllAppKeys($.proxy(this.parent, this));
 	this._listenContentChange();
