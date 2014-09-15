@@ -24,8 +24,19 @@ dashboard.config = {
 };
 
 dashboard.init = function() {
+	var parent = $.proxy(this.parent, this);
+	var self = this;
 	this.set("data.instance.config.topic", this._getSharedTopic());
-	this._getAllAppKeys($.proxy(this.parent, this));
+	this._getAllAppKeys(function() {
+		self.update({
+			"config": this.get("data.instance.config"),
+			"instance": {
+				"id": this.get("data.instance.id")
+			}
+		});
+		
+		parent();
+	});
 	this._listenContentChange();
 };
 
