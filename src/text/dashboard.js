@@ -24,7 +24,6 @@ dashboard.config = {
 };
 
 dashboard.init = function() {
-	var self = this;
 	this.set("data.instance.config.topic", this._getSharedTopic());
 	this._getAllAppKeys($.proxy(this.parent, this));
 	this._listenContentChange();
@@ -70,6 +69,12 @@ dashboard.methods.declareInitialConfig = function() {
 	}
 	return result;
 };
+
+// AppSettings retrieve whole config from configurator when something was changed in properties.
+// Due to configurator didn't know anything about appkey (it isn't defined in ECL),
+// we declare it in configOverrides (as in initialConfig).
+// In this case appkey will be merged to config in every 'update'.
+dashboard.methods.declareConfigOverrides = dashboard.methods.declareInitialConfig;
 
 dashboard.methods._getSharedTopic = function() {
 	return this.config.get("context");
