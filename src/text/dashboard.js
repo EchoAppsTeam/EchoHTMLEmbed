@@ -24,12 +24,13 @@ dashboard.config = {
 };
 
 dashboard.init = function() {
+	var self = this;
 	this.set("data.instance.config.topic", this._getSharedTopic());
-	this._getAllAppKeys();
-
+	this._getAllAppKeys(function() {
+		self.render();
+		self.ready();
+	});
 	this._listenContentChange();
-
-	this.parent();
 };
 
 dashboard.methods._getAllAppKeys = function(callback) {
