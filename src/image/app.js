@@ -58,10 +58,9 @@ imageApp.renderers.image = function(element) {
 imageApp.renderers.imageWrapper = function(element){
 	var targetURL = this.config.get("linkURL");
 	if (targetURL) {
-		var a = $("<a></a>").attr("href", targetURL);
+		var a = $(Echo.Utils.hyperlink({"href": targetURL}));
 		element.find("img").wrap(a);
 	}
-
 	return element;
 };
 
