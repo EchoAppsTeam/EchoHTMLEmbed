@@ -10,7 +10,7 @@ imageApp.config = {
 	"linkURL": ""
 };
 
-imageApp.templates.main = '<div class="{class:imageWrapper}"><img class="{class:image}"></div>';
+imageApp.templates.main = '<div><img class="{class:image}"></div>';
 
 imageApp.renderers.image = function(element) {
 	var targetRect = [this.config.get("width"), this.config.get("height")];
@@ -52,14 +52,10 @@ imageApp.renderers.image = function(element) {
 
 	element.hide();
 
-	return element;
-};
-
-imageApp.renderers.imageWrapper = function(element){
 	var targetURL = this.config.get("linkURL");
 	if (targetURL) {
 		var a = $(Echo.Utils.hyperlink({"href": targetURL}));
-		element.find("img").wrap(a);
+		element.wrap(a);
 	}
 	return element;
 };
