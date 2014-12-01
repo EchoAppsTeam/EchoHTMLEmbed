@@ -1,6 +1,6 @@
 {
-	"id": "{%=manifest.id%}-code",
-	"name": "Code{%=manifest.name%}",
+	"id": "echo-static-code",
+	"name": "Code",
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Embed any HTML content into your Project",

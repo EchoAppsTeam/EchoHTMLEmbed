@@ -1,6 +1,6 @@
 {
-	"id": "{%=manifest.id%}-text",
-	"name": "Text{%=manifest.name%}",
+	"id": "echo-static-text",
+	"name": "Text",
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Insert simple text",

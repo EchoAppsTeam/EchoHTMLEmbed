@@ -1,9 +1,5 @@
 {
-	"version": 1,
-	"manifest": {
-		"id": "echo-static",
-		"name": ""
-	},
+	"version": 2,
 	"baseURLs": {
 		"dev": "//cdn.echoplatform.com<%= release.options.versionPath() %>/dev",
 		"prod": "//cdn.echoplatform.com<%= release.options.versionPath() %>"

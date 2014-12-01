@@ -1,6 +1,6 @@
 {
-	"id": "{%=manifest.id%}-divider",
-	"name": "Divider{%=manifest.name%}",
+	"id": "echo-static-divider",
+	"name": "Divider",
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Insert a simple horizontal divider of configurable thickness",

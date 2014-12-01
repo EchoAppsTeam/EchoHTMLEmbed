@@ -1,6 +1,6 @@
 {
-	"id": "{%=manifest.id%}-image",
-	"name": "Image{%=manifest.name%}",
+	"id": "echo-static-image",
+	"name": "Image",
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Insert static images",

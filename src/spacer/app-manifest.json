@@ -1,6 +1,6 @@
 {
-	"id": "{%=manifest.id%}-spacer",
-	"name": "Spacer{%=manifest.name%}",
+	"id": "echo-static-spacer",
+	"name": "Spacer",
 	"app_version": "{%=packageVersions.stable%}",
 	"cloudapp_protocol_version": "1.0.0",
 	"description": "Insert a gap of configurable size",
