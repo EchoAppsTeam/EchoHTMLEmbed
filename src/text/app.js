@@ -33,9 +33,15 @@ textApp.renderers.content = function(element) {
 
 textApp.methods.saveContent = function(content) {
 	Echo.AppServer.FrameMessages.post(window.parent, {
-		"topic": this.config.get("topic"),
+		"topic": "textAppContentChange",
+		"appId": this.getAppId(),
 		"content": content
 	}, "*");
+};
+
+textApp.methods.getAppId = function() {
+	var match = this.config.get("target").attr("class").match(/echo-canvas-appId-([\w\d]+)/);
+	return match && match[1];
 };
 
 textApp.methods.installEditor = function(element) {

@@ -25,18 +25,7 @@ dashboard.config = {
 
 dashboard.init = function() {
 	var parent = $.proxy(this.parent, this);
-	var self = this;
-	this.set("data.instance.config.topic", this._getSharedTopic());
-	this._getAllAppKeys(function() {
-		self.update({
-			"config": this.get("data.instance.config"),
-			"instance": {
-				"id": this.get("data.instance.id")
-			}
-		});
-		
-		parent();
-	});
+	this._getAllAppKeys(this.parent.bind(this));
 	this._listenContentChange();
 };
 
@@ -87,14 +76,14 @@ dashboard.methods.declareInitialConfig = function() {
 // In this case appkey will be merged to config in every 'update'.
 dashboard.methods.declareConfigOverrides = dashboard.methods.declareInitialConfig;
 
-dashboard.methods._getSharedTopic = function() {
-	return this.config.get("context");
-};
-
 dashboard.methods._listenContentChange = function() {
 	var self = this;
 	Echo.AppServer.FrameMessages.subscribe(function(data) {
-		if (!data.content || (data.topic !== self._getSharedTopic())) return;
+		if (
+			data.topic !== "textAppContentChange" ||
+			data.appId !== self.config.get("data.instance.name") ||
+			!data.content
+		) return;
 		data.content = Echo.Apps.Text.Utils.filterContent(data.content, {
 			"b": {},
 			"i": {},
