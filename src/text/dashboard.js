@@ -24,7 +24,6 @@ dashboard.config = {
 };
 
 dashboard.init = function() {
-	var parent = $.proxy(this.parent, this);
 	this._getAllAppKeys(this.parent.bind(this));
 	this._listenContentChange();
 };
