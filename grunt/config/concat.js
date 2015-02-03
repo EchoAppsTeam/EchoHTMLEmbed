@@ -2,6 +2,7 @@ module.exports = {
 	dashboard: {
 		src: [
 			'<%= dirs.build %>/*/dashboard.js',
+			'<%= dirs.build %>/*/dashboard/*.js',
 			'<%= dirs.build %>/text/utils.js'
 		],
 		nonull: true,

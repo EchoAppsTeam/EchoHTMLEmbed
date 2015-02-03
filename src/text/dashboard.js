@@ -9,7 +9,7 @@ dashboard.inherits = Echo.Utils.getComponent("Echo.AppServer.Dashboards.AppSetti
 
 dashboard.config = {
 	"ecl": [{
-		"component": "Textarea",
+		"component": "Wysiwyg",
 		"name": "content",
 		"type": "string",
 		"config": {
