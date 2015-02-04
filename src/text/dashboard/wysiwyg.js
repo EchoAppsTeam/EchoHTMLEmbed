@@ -33,9 +33,10 @@ wysiwyg.templates.main =
 	'</div>';
 
 wysiwyg.renderers.value = function(element) {
+	var content = Echo.Apps.Text.Utils.filterContent(this.get("data.value"), this.config.get("filterOptions"));
 	return element
 		.empty()
-		.append(this.get("data.value"))
+		.append(content)
 		.notebook(this.config.get("notebook"))
 		.on("contentChange", Echo.Utils.debounce(function(e) {
 			this.setValue(e.originalEvent.detail.content);

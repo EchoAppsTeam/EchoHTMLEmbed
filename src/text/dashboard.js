@@ -8,22 +8,6 @@ var dashboard = Echo.AppServer.Dashboard.manifest("Echo.Apps.Text.Dashboard");
 dashboard.inherits = Echo.Utils.getComponent("Echo.AppServer.Dashboards.AppSettings");
 
 dashboard.config = {
-	"filterOptions": {
-		"b": {},
-		"i": {},
-		"h1": {},
-		"h2": {},
-		"h3": {},
-		"p": {},
-		"br": {},
-		"ul": {},
-		"ol": {},
-		"li": {},
-		"div": {},
-		"a": {
-			"href": /^(https?\:)?\/\//
-		}
-	},
 	"ecl": [{
 		"component": "Wysiwyg",
 		"name": "content",
@@ -34,6 +18,22 @@ dashboard.config = {
 			"desc": "Specifies the text to be displayed.",
 			"notebook": {
 				"placeholder": "<p>Feel free to set any text here.</p>"
+			},
+			"filterOptions": {
+				"b": {},
+				"i": {},
+				"h1": {},
+				"h2": {},
+				"h3": {},
+				"p": {},
+				"br": {},
+				"ul": {},
+				"ol": {},
+				"li": {},
+				"div": {},
+				"a": {
+					"href": /^(https?\:)?\/\//
+				}
 			}
 		}
 	}]
@@ -41,13 +41,6 @@ dashboard.config = {
 
 dashboard.init = function() {
 	this.parent();
-};
-
-dashboard.methods._setConfig = function(data) {
-	if (data.content) {
-		data.content = Echo.Apps.Text.Utils.filterContent(data.content, this.config.get("filterOptions"));
-	}
-	this.parent(data);
 };
 
 Echo.AppServer.Dashboard.create(dashboard);
