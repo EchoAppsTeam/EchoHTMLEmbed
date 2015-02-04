@@ -53,6 +53,7 @@ wysiwyg.dependencies = [{
 wysiwyg.css =
 	'.echo-sdk-ui .{class:value}, .echo-sdk-ui .{class:value} p { font-size: 12px; line-height: initial; margin: 0px; white-space: initial; }' +
 	'.echo-sdk-ui .{class:value} ul li, .echo-sdk-ui .{class:value} ol li { list-style: initial; }' +
+	'.echo-sdk-ui .{class:value} ol li { list-style-type: decimal; }' +
 	'.echo-sdk-ui .{class:value} h1, .echo-sdk-ui .{class:value} h2, .echo-sdk-ui .{class:value} h3 { line-height: 30px; }' +
 	'.echo-sdk-ui .{class:value} h1 { font-size: 28px; }' +
 	'.echo-sdk-ui .{class:value} h2 { font-size: 21px; }' +

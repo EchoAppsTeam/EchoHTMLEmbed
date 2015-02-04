@@ -13,13 +13,12 @@ textApp.config = {
 		"h1": {},
 		"h2": {},
 		"h3": {},
-		"h4": {},
 		"p": {},
 		"br": {},
 		"ul": {},
 		"ol": {},
 		"li": {},
-		"hr": {},
+		"div": {},
 		"a": {
 			"href": /^(https?\:)?\/\//
 		}
@@ -27,7 +26,7 @@ textApp.config = {
 };
 
 textApp.templates.main =
-	'<div class="{class:container}">{config:content}</div>';
+	'<div class="{class:container}"></div>';
 
 textApp.renderers.container = function(element) {
 	return element

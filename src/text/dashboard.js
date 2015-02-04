@@ -14,13 +14,12 @@ dashboard.config = {
 		"h1": {},
 		"h2": {},
 		"h3": {},
-		"h4": {},
 		"p": {},
 		"br": {},
 		"ul": {},
 		"ol": {},
 		"li": {},
-		"hr": {},
+		"div": {},
 		"a": {
 			"href": /^(https?\:)?\/\//
 		}
@@ -32,9 +31,9 @@ dashboard.config = {
 		"config": {
 			"title": "Text",
 			"inputHeight": 45,
-			"desc": "Specifies the text to be displayed. Supports full HTML.",
-			"data": {
-				"sample": "<h1>Hello!</h1><p>Feel free to set any text here.</p>"
+			"desc": "Specifies the text to be displayed.",
+			"notebook": {
+				"placeholder": "<p>Feel free to set any text here.</p>"
 			}
 		}
 	}]
