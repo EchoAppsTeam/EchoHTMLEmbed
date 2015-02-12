@@ -2,8 +2,7 @@
 
 ##v1.0.1 - February 12, 2015
 
-* Inline edit feature were removed from client widget.
-  Wiziwig editor were added into dashboard instead.
+* Inline text editor was moved from the client widget into the
+  dashboard.
 
-* filterContent method call was added into dashboard and
-  client widget to prevent xss vectors.
+* In order to prevent XSS vectors we employed filterContent method.
