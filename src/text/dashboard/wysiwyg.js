@@ -52,6 +52,7 @@ wysiwyg.dependencies = [{
 }];
 
 wysiwyg.css =
+	'.{class:valueContainer} { padding-top: 9px; padding-bottom: 9px; }' +
 	'.echo-sdk-ui .{class:value}, .echo-sdk-ui .{class:value} p { font-size: 12px; line-height: initial; margin: 0px; white-space: initial; }' +
 	'.echo-sdk-ui .{class:value} ul li, .echo-sdk-ui .{class:value} ol li { list-style: initial; }' +
 	'.echo-sdk-ui .{class:value} ol li { list-style-type: decimal; }' +
